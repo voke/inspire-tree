@@ -31,7 +31,7 @@ describe('inline editing', function() {
 
     it('puts node into edit mode', function() {
         var node = tree.node(1);
-        var $node = $(node.itree.ref.node);
+        var $node = $(node.itree.ref);
 
         node.toggleEditing();
 
@@ -42,7 +42,7 @@ describe('inline editing', function() {
 
     it('saves changes', function() {
         var node = tree.node(1);
-        var $node = $(node.itree.ref.node);
+        var $node = $(node.itree.ref);
 
         $node.find('input')[0].value = 'Changed Node';
         $node.find('button').eq(0).click();

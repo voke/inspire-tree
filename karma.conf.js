@@ -15,7 +15,7 @@ module.exports = function(config) {
         ],
         autoWatch: false,
         basePath: '',
-        frameworks: ['mocha', 'chai', 'sinon-chai'],
+        frameworks: ['mocha', 'chai', 'sinon-chai', 'es6-shim'],
         browsers: ['PhantomJS'],
         port: 9876,
         preprocessors: {

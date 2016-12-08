@@ -11,13 +11,13 @@ import * as _ from 'lodash';
  * @param {object} currentState  Current state.
  * @return {boolean} Difference was found.
  */
-export function VStateCompare(previousState, currentState) {
+export default function stateComparator(previousState, currentState) {
     // Always treat dirty flag as a state difference
     var isDirty = currentState.dirty || false;
 
     if (!isDirty) {
-        _.each(currentState, function(val, key) {
-            if (key !== 'dirty' && val !== previousState[key]) {
+        _.each(Object.keys(currentState), function(key) {
+            if (key !== 'dirty' && currentState[key] !== previousState[key]) {
                 isDirty = true;
                 return false;
             }
