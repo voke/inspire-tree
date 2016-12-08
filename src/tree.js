@@ -1,16 +1,17 @@
-'use strict';
+// 'use strict';
 
 // Libs
 import * as _ from 'lodash';
 import { collectionToModel } from './lib/collection-to-model';
 import { EventEmitter2 } from 'eventemitter2';
+import InspireDOM from './dom';
 import { Promise } from 'es6-promise';
 import { standardizePromise } from './lib/standardize-promise';
 import { TreeNode } from './treenode';
 import { TreeNodes } from './treenodes';
 
 // CSS
-require('./scss/tree.scss');
+// require('./scss/tree.scss');
 
 /**
  * Maps a method to the root TreeNodes collection.
@@ -172,7 +173,7 @@ export default class InspireTree extends EventEmitter2 {
         // Cache some configs
         tree.allowsLoadEvents = _.isArray(tree.config.allowLoadEvents) && tree.config.allowLoadEvents.length > 0;
         tree.isDynamic = _.isFunction(tree.config.data);
-        tree.usesNativeDOM = DOM;
+        tree.usesNativeDOM = true; // @todo
 
         // Override emitter so we can better control flow
         var emit = tree.emit;
@@ -194,9 +195,9 @@ export default class InspireTree extends EventEmitter2 {
         // Webpack has a DOM boolean that when false,
         // allows us to exclude this library from our build.
         // For those doing their own rendering, it's useless.
-        if (DOM) {
-            tree.dom = new (require('./dom'))(tree);
-        }
+        // if (DOM) {
+            tree.dom = new InspireDOM(tree);
+        // }
 
         // Validation
         if (tree.dom && (!_.isObject(opts) || !opts.target)) {
