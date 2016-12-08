@@ -423,23 +423,21 @@ export class TreeNode {
      * @return {TreeNode} Node object.
      */
     focus() {
-        var node = this;
-
-        if (!node.focused()) {
+        if (!this.focused()) {
             // Batch selection changes
             this._tree.dom.batch();
             this._tree.blurDeep();
-            node.state('focused', true);
+            this.state('focused', true);
 
             // Emit this event
-            this._tree.emit('node.focused', node);
+            this._tree.emit('node.focused', this);
 
             // Mark hierarchy dirty and apply
-            node.markDirty();
+            this.markDirty();
             this._tree.dom.end();
         }
 
-        return node;
+        return this;
     }
 
     /**

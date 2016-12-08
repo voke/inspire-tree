@@ -28,7 +28,8 @@ describe('DOM-related events', function() {
             done();
         });
 
-        $tree.find('a.title').eq(0).click();
+        // inferno doesn't work correctly with jQuery's .click
+        $tree.find('a.title')[0].click();
     });
 
     it('passes handler as an argument', function(done) {
@@ -37,7 +38,8 @@ describe('DOM-related events', function() {
             done();
         });
 
-        $tree.find('a.title').eq(0).click();
+        // inferno doesn't work correctly with jQuery's .click
+        $tree.find('a.title')[0].click();
     });
 
     after(helpers.clearDOM);

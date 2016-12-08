@@ -11,12 +11,18 @@ module.exports = function(config) {
             'node_modules/lodash/lodash.js',
             'build/inspire-tree.js',
             'test/helpers.js',
-            'test/**/*.spec.js'
+            'test/*/**.spec.js'
         ],
         autoWatch: false,
         basePath: '',
-        frameworks: ['mocha', 'chai', 'sinon-chai'],
-        browsers: ['PhantomJS'],
+        frameworks: ['mocha', 'chai', 'sinon-chai', 'es6-shim'],
+        customLaunchers: {
+            Chrome_travis_ci: {
+                base: 'Chrome',
+                flags: ['--no-sandbox']
+            }
+        },
+        browsers: [process.env.TRAVIS ? 'Chrome_travis_ci' : 'Chrome'],
         port: 9876,
         preprocessors: {
             'build/inspire-tree.js': ['coverage']

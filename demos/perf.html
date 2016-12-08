@@ -19,15 +19,15 @@
         ], function($, _, InspireTree) {
             var tree = new InspireTree({
                 target: '.tree',
-                editable: true,
-                data: $.getJSON('./sample-data/full.json')
+                data: [{
+                    text: 'Test'
+                }],
+                // data: $.getJSON('./sample-data/full.json')
             });
 
-            tree.mute(['node.rendered', 'node.state.changed']);
-
-            tree.onAny(function() {
-                console.log(this.event, arguments);
-            });
+            // tree.onAny(function() {
+            //     console.log(arguments);
+            // });
         });
     </script>
 </html>

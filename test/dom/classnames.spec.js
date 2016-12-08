@@ -15,24 +15,6 @@ describe('Custom Class Names', function() {
                 itree: {
                     li: {
                         attributes: {
-                            class: 'testA.testB'
-                        }
-                    }
-                }
-            }]
-        });
-
-        expect($('.tree').find('li').hasClass('testA')).to.be.true;
-    });
-
-    it('appends custom string class names', function() {
-        new InspireTree({
-            target: '.tree',
-            data: [{
-                text: 'A',
-                itree: {
-                    li: {
-                        attributes: {
                             class: 'testA testB'
                         }
                     }

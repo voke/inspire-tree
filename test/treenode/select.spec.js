@@ -33,7 +33,8 @@ describe('TreeNode.prototype.select', function() {
         var $node = $('[data-uid="' + node.id + '"]');
         expect($node.hasClass('selected')).to.be.false;
 
-        $node.find('> div .title').click();
+        // inferno doesn't work correctly with jQuery's .click
+        $node.find('> div .title')[0].click();
         expect($node.hasClass('selected')).to.be.true;
     });
 

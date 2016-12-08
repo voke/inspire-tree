@@ -38,7 +38,8 @@ describe('TreeNode.prototype.expand', function() {
         var $node = $('[data-uid="' + node.id + '"]');
         expect($node.hasClass('collapsed')).to.be.true;
 
-        $node.find('> div .toggle').click();
+        // inferno doesn't work correctly with jQuery's .click
+        $node.find('> div .toggle')[0].click();
         expect($node.hasClass('collapsed')).to.be.false;
     });
 

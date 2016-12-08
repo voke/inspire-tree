@@ -2,6 +2,8 @@
     "presets": ["es2015"],
     "plugins": [
         "add-module-exports",
+        "babel-plugin-inferno",
+        "babel-plugin-transform-object-rest-spread",
         ["babel-plugin-transform-builtin-extend", {
             "globals": ["Array"],
             "approximate": true
